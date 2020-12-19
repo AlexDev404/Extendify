@@ -1,0 +1,43 @@
+.container {
+  padding: 1vh;
+}
+.songGrid {
+  position: relative;
+  padding: 1.878vh;
+  background: #181818;
+  border-radius: 1vh;
+  width: 9.5vw;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.songGrid:hover {
+  cursor: pointer;
+  background-color: black;
+  box-shadow: 3px black;
+  opacity: 0.8;
+}
+
+.songGrid__info {
+  padding-top: 2%;
+  padding-bottom: 7%;
+  margin-left: 20px;
+}
+
+.songGrid__info > h1 {
+  font-size: 16px;
+}
+
+.songGrid__info > p {
+  font-size: 14px;
+  margin-top: 3px;
+  color: gray;
+}
+
+.songGrid__album {
+  width: 100%;
+  position: relative;
+  background-color: #333;
+  -webkit-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
