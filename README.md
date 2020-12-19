@@ -1,3 +1,9 @@
+# Extendify - A music player with a Spotify UI vibe to go with it
+
+<img src="/assets/logo.png" alt="Extendify Logo" />
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 This project was forked from [CleverProgrammers/spotify-clone](https://github.com/CleverProgrammers/spotify-clone). **ALL credit goes to HIM and his AMAZING team**
