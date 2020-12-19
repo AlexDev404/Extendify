@@ -1,8 +1,11 @@
 # **E x t e n d i f y** - A music player with a Spotify UI vibe to go with it
 
+<br>
+
 <img src="/assets/logo.png" alt="Extendify Logo" width=79.5% />
 
 
+<br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
