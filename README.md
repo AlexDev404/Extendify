@@ -1,6 +1,6 @@
 # Extendify - A music player with a Spotify UI vibe to go with it
 
-<img src="/assets/logo.png" alt="Extendify Logo" />
+<img src="/assets/logo.png" alt="Extendify Logo" width=75% />
 
 
 
