@@ -1,4 +1,4 @@
-# **E x t e n d i f y** - A music player with a Spotify UI vibe to go with it
+# **E x t e n d i f y** - A music player with a Spotify UI vibe to go with it [ CLOSED ]
 
 <br>
 <br>
