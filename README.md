@@ -1,5 +1,4 @@
-# **E x t e n d i f y** - A music player with a Spotify UI vibe to go with it [ CLOSED ]
-> Due to multiple issues, this branch has been closed. Please see the next branch for a rewrite in WinForms
+# **E x t e n d i f y** - A music player with a Spotify UI vibe to go with it
 <br>
 <br>
 
