@@ -66,7 +66,7 @@
         font-size: 16px;
       }
 
-      .songRow__info > p {
+      .info_desc {
         font-size: 14px;
         margin-top: 3px;
         color: gray;
@@ -118,18 +118,20 @@
                   ></i>
                 </div>
                 <div class="mb-20" id="songRow__container">
-                  <!--
+		  <div style="padding-left: 65px; font-style: italic; font-weight: 800;"></div>
+                 
                   <div class="songRow">
                     <img
+		      id="albumArt2"
                       class="songRow__album"
                       src="https://i.scdn.co/image/ab67616d0000b2733d0bc82dc4c22b53d4199cd8"
                       alt=""
                     />
                     <div class="songRow__info">
-                      <h1>Unfamiliar</h1>
-                      <p>Seeb, Goodboys, HRVY - Sad in Scandinavia (Part 1)</p>
+                      <h1>Sorting Tracks...</h1>
+                      <p class="info_desc">One moment</p>
                     </div>
-                  </div> -->
+                  </div> 
                 </div>
               </div>
             </div>
@@ -153,7 +155,7 @@
       <p id="src" style="display: none;"></p>
       <div class="songRow__info">
         <h1 id="trackTitle">Unfamiliar</h1>
-        <div class="flex">
+        <div class="flex info_desc">
           <p id="trackArtist">Seeb, Goodboys, HRVY</p>
           &nbsp;-&nbsp;
           <p id="trackAlbum">Sad in Scandinavia (Part 1)</p>

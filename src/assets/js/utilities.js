@@ -8,6 +8,10 @@ let seeker;
 let seekKnob;
 let THISCONTEXT;
 let XRAY = false;
+// let startY, startHeight
+let startX, startWidth;
+let p = document.querySelector('.sidebar');
+
 
 if (XRAY)
   document.querySelector('[data="secret"]').innerHTML = `*{
@@ -25,6 +29,16 @@ setTimeout(() => {
   seeker = document.getElementById("seek");
   seekKnob = document.getElementById("seekKnob");
   let style = document.querySelector('[data="thumbstyle"]');
+
+
+p.addEventListener('click', function init() {
+    p.removeEventListener('click', init, false);
+    p.className = p.className + ' resizable';
+    var resizer = document.createElement('div');
+    resizer.className = 'resizer';
+    p.appendChild(resizer);
+    resizer.addEventListener('mousedown', initDrag, false);
+}, false);
 
   volume.addEventListener("change", (e) => switchVol(e));
   volume.addEventListener("input", (e) => {
@@ -143,7 +157,8 @@ function playHandler(id) {
   let source = document.getElementById(`src__${number}`);
   let play = document.getElementById("playButton");
   play.classList = "fas fa-pause footer-icon";
-
+  // Enable the seekbar
+  seekbar.classList.remove("pointer-events-none");
   // Switch the status of the navigator to the bottom
   nowPlayingIcon.src = document.getElementById(
     `track__${number}_icon__${uuid}`
@@ -324,4 +339,24 @@ function checkNOW(){
    },
 500);
    }
+}
+
+// Sidebar Resize
+
+function initDrag(e) {
+   startX = e.clientX;
+//   startY = e.clientY;
+   startWidth = parseInt(document.defaultView.getComputedStyle(p).width, 10); // Disable resize Y
+ //  startHeight = parseInt(document.defaultView.getComputedStyle(p).height, 10);
+   document.documentElement.addEventListener('mousemove', doDrag, false);
+   document.documentElement.addEventListener('mouseup', stopDrag, false);
+}
+
+function doDrag(e) {
+   p.style.width = (startWidth + e.clientX - startX) + 'px';
+//   p.style.height = (startHeight + e.clientY - startY) + 'px';
+}
+
+function stopDrag(e) {
+    document.documentElement.removeEventListener('mousemove', doDrag, false);    document.documentElement.removeEventListener('mouseup', stopDrag, false);
 }

@@ -34,6 +34,7 @@ try{
     baseDir = path.join(dirName);
     playlist = [];
     playlist_filtered = [];
+    onDisk.innerText = "Searching...";
     readDir(baseDir);
   });
 }

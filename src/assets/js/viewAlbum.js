@@ -13,7 +13,9 @@ let entryTemplate;
 let albumtitle;
 let albumartist;
 let albumart;
+let albumart2;
 let container;
+let albumPlaylist = [];
 
 let trackart;
 let tracktitle;
@@ -26,6 +28,7 @@ setTimeout(() => {
   albumtitle = document.getElementById("albumTitle");
   albumartist = document.getElementById("albumArtist");
   albumart = document.getElementById("albumArt");
+  albumart2 = document.getElementById("albumArt2");
   container = document.getElementById("songRow__container");
 
   trackart = document.getElementById("trackArt");
@@ -42,9 +45,10 @@ setTimeout(() => {
 
 function setContent() {
   console.log(albumFilter);
-  albumtitle.innerText = albumFilter.artist;
-  albumartist.innerText = albumFilter.album;
+  albumtitle.innerText = albumFilter.album;
+  albumartist.innerText = albumFilter.artist;
   albumart.src = albumFilter.buffer;
+  albumart2.src = albumFilter.buffer;
   readDir(baseDir);
 }
 
@@ -65,7 +69,19 @@ function populateplaylists() {
         trackTags.artist.includes(albumFilter.artist) &&
         trackTags.album == albumFilter.album
       )
-        playlist_filtered.push(track_name);
+        // playlist_filtered.push(track_name);
+        albumPlaylist.push(track_name);
+
+        // #3 - Better Sorting
+        try {
+	   albumPlaylist.forEach((track) => {
+              const trackTags_new = NodeID3.read(path.join(baseDir, track));
+              playlist_filtered[parseInt(trackTags_new.trackNumber) - 1] = track;
+           });
+        } catch(error){
+             playlist_filtered.push(track_name);
+          }
+        
     }
   });
 
