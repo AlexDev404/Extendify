@@ -1,0 +1,73 @@
+<div class="footer__left">
+  <img class="footer__albumLogo" id="nowPlaying__icon" />
+  <div class="footer__songInfo">
+    <h4 id="nowPlaying__song">No song is playing</h4>
+    <p id="nowPlaying__artist"></p>
+  </div>
+</div>
+<div class="footer__center">
+  <div
+    style="
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    "
+  >
+    <i class="fas fa-random footer__green"></i>
+  </div>
+  <div
+    style="
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    "
+  >
+    <i class="fas fa-step-backward"></i>
+  </div>
+  <div
+    style="
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    "
+    onclick="changeState('playButton')"
+  >
+    <i id="playButton" class="fas fa-play footer-icon"></i>
+  </div>
+  <div
+    style="
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    "
+  >
+    <i class="fas fa-step-forward footer-icon"></i>
+  </div>
+  <div
+    style="
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    "
+  >
+    <i class="fas fa-repeat footer__green"></i>
+  </div>
+</div>
+<div class="footer__right">
+  <i class="fas fa-list-music"></i>
+  <div class="encapsulator flex">
+    <i id="volume_signaller" class="fas fa-volume pr-5"></i>
+    <!-- volume_control -->
+    <div class="slider_container">
+      <div class="slider">
+        <input id="slideInput" type="range" min="0" max="100" value="25" />
+        <progress id="slideProgress" min="0" max="100" value="25"></progress>
+      </div>
+    </div>
+  </div>
+</div>

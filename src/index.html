@@ -1,0 +1,90 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/tailwind.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css"
+      rel="stylesheet"
+    />
+    <title>Extendify</title>
+  </head>
+  <script src="./assets/js/include.js"></script>
+  <style data="secret"></style>
+
+  <body class="select-none">
+    <div class="app">
+      <div class="player">
+        <div class="player__body">
+          <div
+            class="sidebar"
+            includefile="./assets/partials/html/sidebar.html"
+          ></div>
+          <div class="body">
+            <h1 class="on-disk">On Deck</h1>
+            <p id="on-disk" style="padding-left: 30px">No Songs Found.</p>
+            <div class="flex flex-wrap pt-9 pb-20" id="container">
+              <!-- <div class="container">
+                        <div class="songGrid">
+                           <img class="songGrid__album" src="./assets/png/music_placeholder.png" alt="Album Image">
+                           <div class="songGrid__info">
+                              <h1>Track Name</h1>
+                              <p>John Lennon<br>Album: <b>Test123</b></p>
+                           </div>
+                        </div>
+                     </div> -->
+            </div>
+          </div>
+        </div>
+        <div
+          class="footer h5"
+          includefile="./assets/partials/html/footer.html"
+        ></div>
+      </div>
+    </div>
+    <script type="text/html" id="entryTemplate">
+      <div class="songGrid" style="user-select: none;">
+        <img
+          class="songGrid__album"
+          id="trackIcon"
+          src="./assets/png/music_placeholder.png"
+          alt="Album Image"
+        />
+        <p id="src" style="display: none;"></p>
+        <div class="songGrid__info">
+          <h1 id="trackName">Track Name</h1>
+          <p id="trackArtist">John Lennon</p>
+          <p id="trackAlbumHolder">
+            <br />Album: <b id="trackAlbum">Test123</b>
+          </p>
+        </div>
+      </div>
+    </script>
+
+    <script>
+      Include();
+    </script>
+    <script defer src="./assets/js/utilities.js"></script>
+    <script defer src="./assets/js/populateplaylists.js"></script>
+  </body>
+</html>

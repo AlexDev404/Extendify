@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extendify - View Album</title>
+    <script src="./assets/js/include.js"></script>
+    <link rel="stylesheet" href="./assets/css/tailwind.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css"
+      rel="stylesheet"
+    />
+    <title>React App</title>
+    <style data="secret" id="codeDump"></style>
+    <style type="text/css">
+      .body {
+        background: linear-gradient(transparent, rgba(0, 0, 0, 1));
+        background-color: rgb(91, 87, 115);
+      }
+    </style>
+
+    <style type="text/css">
+      #pathfinder {
+        display: none;
+      }
+      .songRow {
+        margin-left: 20px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        z-index: 100;
+        color: white;
+      }
+
+      .songRow:hover {
+        cursor: pointer;
+        background-color: black;
+        opacity: 0.8;
+      }
+
+      .songRow__info {
+        margin-left: 20px;
+      }
+
+      .songRow__info > h1 {
+        font-size: 16px;
+      }
+
+      .songRow__info > p {
+        font-size: 14px;
+        margin-top: 3px;
+        color: gray;
+      }
+
+      .songRow__album {
+        height: 40px;
+        width: 40px;
+      }
+      /* OVERRIDES */
+      .slider input[type="range"] {
+        top: 10px;
+      }
+
+      #volume_signaller {
+        padding-top: 7px;
+      }
+    </style>
+  </head>
+  <body class="select-none">
+    <div id="root">
+      <div class="app">
+        <div class="player">
+          <div class="player__body">
+            <div
+              class="sidebar"
+              includefile="./assets/partials/html/sidebar.html"
+            ></div>
+            <div class="body">
+              <div class="body__info">
+                <img
+                  id="albumArt"
+                  alt="ALBUMART"
+                  src="./assets/png/album_placeholder.png"
+                />
+                <div class="body__infoText">
+                  <strong>ALBUM</strong>
+                  <h2 id="albumTitle">Get Ready...</h2>
+                  <p id="albumArtist">While we load your amazing album...</p>
+                </div>
+              </div>
+              <div class="body__songs">
+                <div class="body__icons">
+                  <!-- PLAY BUTTON -->
+                  <i
+                    id="playAll"
+                    class="fas fa-play cursor-pointer hover:opacity-80"
+                    onclick="changeState(this.id)"
+                  ></i>
+                </div>
+                <div class="mb-20" id="songRow__container">
+                  <!--
+                  <div class="songRow">
+                    <img
+                      class="songRow__album"
+                      src="https://i.scdn.co/image/ab67616d0000b2733d0bc82dc4c22b53d4199cd8"
+                      alt=""
+                    />
+                    <div class="songRow__info">
+                      <h1>Unfamiliar</h1>
+                      <p>Seeb, Goodboys, HRVY - Sad in Scandinavia (Part 1)</p>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="footer h5"
+            includefile="./assets/partials/html/footer.html"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/html" id="entryTemplate">
+    <div class="songRow">
+      <img
+        class="songRow__album"
+        id="trackArt"
+        src="https://i.scdn.co/image/ab67616d0000b2733d0bc82dc4c22b53d4199cd8"
+        alt=""
+      />
+      <p id="src" style="display: none;"></p>
+      <div class="songRow__info">
+        <h1 id="trackTitle">Unfamiliar</h1>
+        <div class="flex">
+          <p id="trackArtist">Seeb, Goodboys, HRVY</p>
+          &nbsp;-&nbsp;
+          <p id="trackAlbum">Sad in Scandinavia (Part 1)</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script>
+    Include();
+  </script>
+  <script defer src="./assets/js/utilities.js"></script>
+  <script defer src="./assets/js/viewAlbum.js"></script>
+</html>

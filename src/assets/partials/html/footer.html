@@ -1,0 +1,136 @@
+<style>
+  .seekBar[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+  .seekBar[value]::-webkit-progress-value {
+    background: red;
+  }
+
+  .seekContainer {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    top: 0;
+  }
+  .seekBar {
+    height: 5px;
+    border-radius: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+  }
+
+  .seekKnob {
+    height: 5px;
+    border-radius: 0;
+    position: absolute;
+    z-index: 999999;
+    background: transparent;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    -webkit-appearance: none; /* Override default CSS styles */
+    appearance: none;
+  }
+
+  .seekKnob::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+  }
+</style>
+<style data="thumbstyle" type="text/css"></style>
+<div id="seekbar" class="seekContainer">
+  <input class="seekKnob" id="seekKnob" type="range" value="0" max="100" />
+  <progress id="seek" class="seekBar" value="0" max="100"></progress>
+</div>
+<div class="footer__left select-none">
+  <img class="footer__albumLogo" id="nowPlaying__icon" />
+  <div class="footer__songInfo">
+    <h4 id="nowPlaying__song">No song is playing</h4>
+    <p id="nowPlaying__artist"></p>
+  </div>
+</div>
+<div class="footer__center select-none">
+  <div
+
+id="fxBTN"
+
+    style="
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    "
+  >
+    <i class="fas fa-random footer__green"></i>
+  </div>
+  <div
+
+id="fxBTN"
+
+    style="
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    "
+  >
+    <i class="fas fa-step-backward"></i>
+  </div>
+  <div
+
+id="fxBTN"
+
+    style="
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    "
+    onclick="changeState('playButton')"
+  >
+    <i id="playButton" class="fas fa-play footer-icon"></i>
+  </div>
+  <div
+
+id="fxBTN"
+
+    style="
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    "
+  >
+    <i class="fas fa-step-forward footer-icon"></i>
+  </div>
+  <div
+
+id="fxBTN"
+
+    style="
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    "
+  >
+    <i class="fas fa-repeat footer__green"></i>
+  </div>
+</div>
+<div class="footer__right select-none">
+  <i class="fas fa-list-music"></i>
+  <div class="encapsulator flex" style="padding-right: 20px">
+    <i id="volume_signaller" class="fas fa-volume pr-5"></i>
+    <!-- volume_control -->
+    <div class="slider_container" >
+      <div class="slider">
+        <input id="slideInput" type="range" min="0" max="100" value="25" />
+        <progress id="slideProgress" min="0" max="100" value="25"></progress>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extendify - View Album</title>
+    <script defer src="./assets/js/viewAlbum.js"></script>
+    <link rel="stylesheet" href="./assets/css/tailwind.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css"
+      rel="stylesheet"
+    />
+    <title>React App</title>
+    <!--
+    <style type="text/css">
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+      * {
+        margin: 0;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      code {
+        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+          monospace;
+      }
+    </style>
+    <style type="text/css">
+      .footer {
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        bottom: 0;
+        padding: 20px;
+        height: 65px;
+        width: 97%;
+        background-color: #282828;
+      }
+
+      .footer__right * .MuiSlider-root {
+        color: green;
+      }
+      .footer__left {
+        display: flex;
+        align-items: center;
+        color: white;
+        width: 300px;
+        flex: 0.3 1;
+      }
+
+      .footer__green {
+        color: #1ed15e;
+      }
+
+      .footer__center {
+        flex: 0.4 1;
+        max-width: 300px;
+        padding: 0 100px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .footer__icon:hover,
+      .footer__green:hover {
+        transition: transform 0.2s ease-in-out;
+        transform: scale(1.2) !important;
+      }
+
+      .footer__right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        flex: 0.3 1;
+      }
+
+      .footer__albumLogo {
+        height: 60px;
+        width: 60px;
+        margin-right: 20px;
+        object-fit: contain;
+      }
+
+      .footer__songInfo > h4 {
+        margin-bottom: 5px;
+      }
+
+      .footer__songInfo > p {
+        font-size: 12px;
+      }
+    </style>
+    <style type="text/css">
+      .player {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .player__body {
+        display: flex;
+        flex-grow: 1;
+      }
+    </style>
+    <style type="text/css">
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        flex: 0.2 1;
+        padding-left: 10px;
+        padding-right: 10px;
+        min-width: 230px;
+        height: 100vh;
+        color: white;
+        background-color: #040404;
+      }
+
+      .sidebar__title {
+        margin-left: 10px;
+        padding: 5px;
+        font-size: 12px;
+      }
+
+      .sidebar__logo {
+        margin-right: auto;
+        object-fit: contain;
+        height: 70px;
+        padding: 10px;
+      }
+    </style>
+    <style type="text/css">
+      .sidebarOption {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        height: 40px;
+        color: grey;
+        transition: 200ms color ease-in;
+      }
+
+      .sidebarOption:hover {
+        color: white;
+      }
+
+      .sidebar > hr {
+        border: 1px solid #282828;
+        width: 90%;
+        margin: 10px auto;
+      }
+
+      .sidebarOption__icon {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .sidebarOption > p {
+        margin-top: 10px;
+        margin-left: 20px;
+        font-size: 14px;
+      }
+    </style>
+-->
+    <style type="text/css">
+      .body {
+        padding: 30px;
+        width: 100%;
+        height: 100vh;
+        overflow-y: overlay;
+        flex: 0.8 1;
+        color: white;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 1));
+        background-color: rgb(91, 87, 115);
+      }
+
+      .body::-webkit-scrollbar {
+        display: none;
+      }
+
+      .body__info {
+        display: flex;
+        align-items: flex-end;
+        padding: 10px;
+      }
+
+      .body__shuffle {
+        font-size: 80px !important;
+        margin-left: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .body__icons {
+        display: flex;
+        align-items: center;
+      }
+
+      .body__icons > .MuiSvgIcon-root {
+        margin-right: 20px;
+      }
+
+      .body__shuffle:hover {
+        transition: 100ms transform ease-in;
+        transform: scale(1.08);
+      }
+
+      .body__background {
+        position: absolute;
+        top: 13vh;
+        right: 0;
+        opacity: 0.4;
+        height: 80%;
+        width: 80%;
+        background-color: black;
+      }
+
+      .body__songs {
+        z-index: 1;
+        margin: 20px -30px;
+      }
+
+      .body__info > img {
+        height: 20vw;
+        margin: 0 20px;
+        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      .body__infoText {
+        flex: 1 1;
+      }
+
+      .body__infoText > h2 {
+        font-size: 48px;
+        margin-bottom: 10px;
+      }
+
+      .body__infoText > p {
+        font-size: 14px;
+      }
+    </style>
+    <style type="text/css">
+      .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .header__right {
+        display: flex;
+        align-items: center;
+      }
+
+      .header__left {
+        flex: 0.5 1;
+        display: flex;
+        background-color: white;
+        padding: 10px;
+        border-radius: 30px;
+        color: gray;
+        align-items: center;
+      }
+
+      .header__left > input {
+        border: none;
+        width: 100%;
+      }
+
+      .header__right > h4 {
+        margin-left: 10px;
+      }
+    </style>
+    <style type="text/css">
+      .songRow {
+        margin-left: 20px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        z-index: 100;
+        color: white;
+      }
+
+      .songRow:hover {
+        cursor: pointer;
+        background-color: black;
+        opacity: 0.8;
+      }
+
+      .songRow__info {
+        margin-left: 20px;
+      }
+
+      .songRow__info > h1 {
+        font-size: 16px;
+      }
+
+      .songRow__info > p {
+        font-size: 14px;
+        margin-top: 3px;
+        color: gray;
+      }
+
+      .songRow__album {
+        height: 40px;
+        width: 40px;
+      }
+    </style>
+    <style type="text/css"></style>
+    <style type="text/css">
+      .login {
+        display: grid;
+        background-color: black;
+        height: 100vh;
+        place-items: center;
+      }
+
+      .login > img {
+        height: 200px;
+      }
+
+      .login > a {
+        color: white;
+        text-decoration: none;
+        padding: 20px;
+        border-radius: 99px;
+        font-weight: 800;
+        background-color: #1db954;
+      }
+    </style>
+    <!--
+    <style data-jss="" data-meta="MuiSvgIcon">
+      .MuiSvgIcon-root {
+        fill: currentColor;
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        font-size: 1.5rem;
+        transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        flex-shrink: 0;
+        user-select: none;
+      }
+      .MuiSvgIcon-colorPrimary {
+        color: #3f51b5;
+      }
+      .MuiSvgIcon-colorSecondary {
+        color: #f50057;
+      }
+      .MuiSvgIcon-colorAction {
+        color: rgba(0, 0, 0, 0.54);
+      }
+      .MuiSvgIcon-colorError {
+        color: #f44336;
+      }
+      .MuiSvgIcon-colorDisabled {
+        color: rgba(0, 0, 0, 0.26);
+      }
+      .MuiSvgIcon-fontSizeInherit {
+        font-size: inherit;
+      }
+      .MuiSvgIcon-fontSizeSmall {
+        font-size: 1.25rem;
+      }
+      .MuiSvgIcon-fontSizeLarge {
+        font-size: 2.1875rem;
+      }
+    </style>
+    <style data-jss="" data-meta="MuiAvatar">
+      .MuiAvatar-root {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        font-size: 1.25rem;
+        align-items: center;
+        flex-shrink: 0;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        line-height: 1;
+        user-select: none;
+        border-radius: 50%;
+        justify-content: center;
+      }
+      .MuiAvatar-colorDefault {
+        color: #fafafa;
+        background-color: #bdbdbd;
+      }
+      .MuiAvatar-rounded {
+        border-radius: 4px;
+      }
+      .MuiAvatar-square {
+        border-radius: 0;
+      }
+      .MuiAvatar-img {
+        color: transparent;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        text-align: center;
+        text-indent: 10000px;
+      }
+      .MuiAvatar-fallback {
+        width: 75%;
+        height: 75%;
+      }
+    </style>
+    <style data-jss="" data-meta="MuiGrid">
+      .MuiGrid-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+      }
+      .MuiGrid-item {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .MuiGrid-zeroMinWidth {
+        min-width: 0;
+      }
+      .MuiGrid-direction-xs-column {
+        flex-direction: column;
+      }
+      .MuiGrid-direction-xs-column-reverse {
+        flex-direction: column-reverse;
+      }
+      .MuiGrid-direction-xs-row-reverse {
+        flex-direction: row-reverse;
+      }
+      .MuiGrid-wrap-xs-nowrap {
+        flex-wrap: nowrap;
+      }
+      .MuiGrid-wrap-xs-wrap-reverse {
+        flex-wrap: wrap-reverse;
+      }
+      .MuiGrid-align-items-xs-center {
+        align-items: center;
+      }
+      .MuiGrid-align-items-xs-flex-start {
+        align-items: flex-start;
+      }
+      .MuiGrid-align-items-xs-flex-end {
+        align-items: flex-end;
+      }
+      .MuiGrid-align-items-xs-baseline {
+        align-items: baseline;
+      }
+      .MuiGrid-align-content-xs-center {
+        align-content: center;
+      }
+      .MuiGrid-align-content-xs-flex-start {
+        align-content: flex-start;
+      }
+      .MuiGrid-align-content-xs-flex-end {
+        align-content: flex-end;
+      }
+      .MuiGrid-align-content-xs-space-between {
+        align-content: space-between;
+      }
+      .MuiGrid-align-content-xs-space-around {
+        align-content: space-around;
+      }
+      .MuiGrid-justify-xs-center {
+        justify-content: center;
+      }
+      .MuiGrid-justify-xs-flex-end {
+        justify-content: flex-end;
+      }
+      .MuiGrid-justify-xs-space-between {
+        justify-content: space-between;
+      }
+      .MuiGrid-justify-xs-space-around {
+        justify-content: space-around;
+      }
+      .MuiGrid-justify-xs-space-evenly {
+        justify-content: space-evenly;
+      }
+      .MuiGrid-spacing-xs-1 {
+        width: calc(100% + 8px);
+        margin: -4px;
+      }
+      .MuiGrid-spacing-xs-1 > .MuiGrid-item {
+        padding: 4px;
+      }
+      .MuiGrid-spacing-xs-2 {
+        width: calc(100% + 16px);
+        margin: -8px;
+      }
+      .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+        padding: 8px;
+      }
+      .MuiGrid-spacing-xs-3 {
+        width: calc(100% + 24px);
+        margin: -12px;
+      }
+      .MuiGrid-spacing-xs-3 > .MuiGrid-item {
+        padding: 12px;
+      }
+      .MuiGrid-spacing-xs-4 {
+        width: calc(100% + 32px);
+        margin: -16px;
+      }
+      .MuiGrid-spacing-xs-4 > .MuiGrid-item {
+        padding: 16px;
+      }
+      .MuiGrid-spacing-xs-5 {
+        width: calc(100% + 40px);
+        margin: -20px;
+      }
+      .MuiGrid-spacing-xs-5 > .MuiGrid-item {
+        padding: 20px;
+      }
+      .MuiGrid-spacing-xs-6 {
+        width: calc(100% + 48px);
+        margin: -24px;
+      }
+      .MuiGrid-spacing-xs-6 > .MuiGrid-item {
+        padding: 24px;
+      }
+      .MuiGrid-spacing-xs-7 {
+        width: calc(100% + 56px);
+        margin: -28px;
+      }
+      .MuiGrid-spacing-xs-7 > .MuiGrid-item {
+        padding: 28px;
+      }
+      .MuiGrid-spacing-xs-8 {
+        width: calc(100% + 64px);
+        margin: -32px;
+      }
+      .MuiGrid-spacing-xs-8 > .MuiGrid-item {
+        padding: 32px;
+      }
+      .MuiGrid-spacing-xs-9 {
+        width: calc(100% + 72px);
+        margin: -36px;
+      }
+      .MuiGrid-spacing-xs-9 > .MuiGrid-item {
+        padding: 36px;
+      }
+      .MuiGrid-spacing-xs-10 {
+        width: calc(100% + 80px);
+        margin: -40px;
+      }
+      .MuiGrid-spacing-xs-10 > .MuiGrid-item {
+        padding: 40px;
+      }
+      .MuiGrid-grid-xs-auto {
+        flex-grow: 0;
+        max-width: none;
+        flex-basis: auto;
+      }
+      .MuiGrid-grid-xs-true {
+        flex-grow: 1;
+        max-width: 100%;
+        flex-basis: 0;
+      }
+      .MuiGrid-grid-xs-1 {
+        flex-grow: 0;
+        max-width: 8.333333%;
+        flex-basis: 8.333333%;
+      }
+      .MuiGrid-grid-xs-2 {
+        flex-grow: 0;
+        max-width: 16.666667%;
+        flex-basis: 16.666667%;
+      }
+      .MuiGrid-grid-xs-3 {
+        flex-grow: 0;
+        max-width: 25%;
+        flex-basis: 25%;
+      }
+      .MuiGrid-grid-xs-4 {
+        flex-grow: 0;
+        max-width: 33.333333%;
+        flex-basis: 33.333333%;
+      }
+      .MuiGrid-grid-xs-5 {
+        flex-grow: 0;
+        max-width: 41.666667%;
+        flex-basis: 41.666667%;
+      }
+      .MuiGrid-grid-xs-6 {
+        flex-grow: 0;
+        max-width: 50%;
+        flex-basis: 50%;
+      }
+      .MuiGrid-grid-xs-7 {
+        flex-grow: 0;
+        max-width: 58.333333%;
+        flex-basis: 58.333333%;
+      }
+      .MuiGrid-grid-xs-8 {
+        flex-grow: 0;
+        max-width: 66.666667%;
+        flex-basis: 66.666667%;
+      }
+      .MuiGrid-grid-xs-9 {
+        flex-grow: 0;
+        max-width: 75%;
+        flex-basis: 75%;
+      }
+      .MuiGrid-grid-xs-10 {
+        flex-grow: 0;
+        max-width: 83.333333%;
+        flex-basis: 83.333333%;
+      }
+      .MuiGrid-grid-xs-11 {
+        flex-grow: 0;
+        max-width: 91.666667%;
+        flex-basis: 91.666667%;
+      }
+      .MuiGrid-grid-xs-12 {
+        flex-grow: 0;
+        max-width: 100%;
+        flex-basis: 100%;
+      }
+      @media (min-width: 600px) {
+        .MuiGrid-grid-sm-auto {
+          flex-grow: 0;
+          max-width: none;
+          flex-basis: auto;
+        }
+        .MuiGrid-grid-sm-true {
+          flex-grow: 1;
+          max-width: 100%;
+          flex-basis: 0;
+        }
+        .MuiGrid-grid-sm-1 {
+          flex-grow: 0;
+          max-width: 8.333333%;
+          flex-basis: 8.333333%;
+        }
+        .MuiGrid-grid-sm-2 {
+          flex-grow: 0;
+          max-width: 16.666667%;
+          flex-basis: 16.666667%;
+        }
+        .MuiGrid-grid-sm-3 {
+          flex-grow: 0;
+          max-width: 25%;
+          flex-basis: 25%;
+        }
+        .MuiGrid-grid-sm-4 {
+          flex-grow: 0;
+          max-width: 33.333333%;
+          flex-basis: 33.333333%;
+        }
+        .MuiGrid-grid-sm-5 {
+          flex-grow: 0;
+          max-width: 41.666667%;
+          flex-basis: 41.666667%;
+        }
+        .MuiGrid-grid-sm-6 {
+          flex-grow: 0;
+          max-width: 50%;
+          flex-basis: 50%;
+        }
+        .MuiGrid-grid-sm-7 {
+          flex-grow: 0;
+          max-width: 58.333333%;
+          flex-basis: 58.333333%;
+        }
+        .MuiGrid-grid-sm-8 {
+          flex-grow: 0;
+          max-width: 66.666667%;
+          flex-basis: 66.666667%;
+        }
+        .MuiGrid-grid-sm-9 {
+          flex-grow: 0;
+          max-width: 75%;
+          flex-basis: 75%;
+        }
+        .MuiGrid-grid-sm-10 {
+          flex-grow: 0;
+          max-width: 83.333333%;
+          flex-basis: 83.333333%;
+        }
+        .MuiGrid-grid-sm-11 {
+          flex-grow: 0;
+          max-width: 91.666667%;
+          flex-basis: 91.666667%;
+        }
+        .MuiGrid-grid-sm-12 {
+          flex-grow: 0;
+          max-width: 100%;
+          flex-basis: 100%;
+        }
+      }
+      @media (min-width: 960px) {
+        .MuiGrid-grid-md-auto {
+          flex-grow: 0;
+          max-width: none;
+          flex-basis: auto;
+        }
+        .MuiGrid-grid-md-true {
+          flex-grow: 1;
+          max-width: 100%;
+          flex-basis: 0;
+        }
+        .MuiGrid-grid-md-1 {
+          flex-grow: 0;
+          max-width: 8.333333%;
+          flex-basis: 8.333333%;
+        }
+        .MuiGrid-grid-md-2 {
+          flex-grow: 0;
+          max-width: 16.666667%;
+          flex-basis: 16.666667%;
+        }
+        .MuiGrid-grid-md-3 {
+          flex-grow: 0;
+          max-width: 25%;
+          flex-basis: 25%;
+        }
+        .MuiGrid-grid-md-4 {
+          flex-grow: 0;
+          max-width: 33.333333%;
+          flex-basis: 33.333333%;
+        }
+        .MuiGrid-grid-md-5 {
+          flex-grow: 0;
+          max-width: 41.666667%;
+          flex-basis: 41.666667%;
+        }
+        .MuiGrid-grid-md-6 {
+          flex-grow: 0;
+          max-width: 50%;
+          flex-basis: 50%;
+        }
+        .MuiGrid-grid-md-7 {
+          flex-grow: 0;
+          max-width: 58.333333%;
+          flex-basis: 58.333333%;
+        }
+        .MuiGrid-grid-md-8 {
+          flex-grow: 0;
+          max-width: 66.666667%;
+          flex-basis: 66.666667%;
+        }
+        .MuiGrid-grid-md-9 {
+          flex-grow: 0;
+          max-width: 75%;
+          flex-basis: 75%;
+        }
+        .MuiGrid-grid-md-10 {
+          flex-grow: 0;
+          max-width: 83.333333%;
+          flex-basis: 83.333333%;
+        }
+        .MuiGrid-grid-md-11 {
+          flex-grow: 0;
+          max-width: 91.666667%;
+          flex-basis: 91.666667%;
+        }
+        .MuiGrid-grid-md-12 {
+          flex-grow: 0;
+          max-width: 100%;
+          flex-basis: 100%;
+        }
+      }
+      @media (min-width: 1280px) {
+        .MuiGrid-grid-lg-auto {
+          flex-grow: 0;
+          max-width: none;
+          flex-basis: auto;
+        }
+        .MuiGrid-grid-lg-true {
+          flex-grow: 1;
+          max-width: 100%;
+          flex-basis: 0;
+        }
+        .MuiGrid-grid-lg-1 {
+          flex-grow: 0;
+          max-width: 8.333333%;
+          flex-basis: 8.333333%;
+        }
+        .MuiGrid-grid-lg-2 {
+          flex-grow: 0;
+          max-width: 16.666667%;
+          flex-basis: 16.666667%;
+        }
+        .MuiGrid-grid-lg-3 {
+          flex-grow: 0;
+          max-width: 25%;
+          flex-basis: 25%;
+        }
+        .MuiGrid-grid-lg-4 {
+          flex-grow: 0;
+          max-width: 33.333333%;
+          flex-basis: 33.333333%;
+        }
+        .MuiGrid-grid-lg-5 {
+          flex-grow: 0;
+          max-width: 41.666667%;
+          flex-basis: 41.666667%;
+        }
+        .MuiGrid-grid-lg-6 {
+          flex-grow: 0;
+          max-width: 50%;
+          flex-basis: 50%;
+        }
+        .MuiGrid-grid-lg-7 {
+          flex-grow: 0;
+          max-width: 58.333333%;
+          flex-basis: 58.333333%;
+        }
+        .MuiGrid-grid-lg-8 {
+          flex-grow: 0;
+          max-width: 66.666667%;
+          flex-basis: 66.666667%;
+        }
+        .MuiGrid-grid-lg-9 {
+          flex-grow: 0;
+          max-width: 75%;
+          flex-basis: 75%;
+        }
+        .MuiGrid-grid-lg-10 {
+          flex-grow: 0;
+          max-width: 83.333333%;
+          flex-basis: 83.333333%;
+        }
+        .MuiGrid-grid-lg-11 {
+          flex-grow: 0;
+          max-width: 91.666667%;
+          flex-basis: 91.666667%;
+        }
+        .MuiGrid-grid-lg-12 {
+          flex-grow: 0;
+          max-width: 100%;
+          flex-basis: 100%;
+        }
+      }
+      @media (min-width: 1920px) {
+        .MuiGrid-grid-xl-auto {
+          flex-grow: 0;
+          max-width: none;
+          flex-basis: auto;
+        }
+        .MuiGrid-grid-xl-true {
+          flex-grow: 1;
+          max-width: 100%;
+          flex-basis: 0;
+        }
+        .MuiGrid-grid-xl-1 {
+          flex-grow: 0;
+          max-width: 8.333333%;
+          flex-basis: 8.333333%;
+        }
+        .MuiGrid-grid-xl-2 {
+          flex-grow: 0;
+          max-width: 16.666667%;
+          flex-basis: 16.666667%;
+        }
+        .MuiGrid-grid-xl-3 {
+          flex-grow: 0;
+          max-width: 25%;
+          flex-basis: 25%;
+        }
+        .MuiGrid-grid-xl-4 {
+          flex-grow: 0;
+          max-width: 33.333333%;
+          flex-basis: 33.333333%;
+        }
+        .MuiGrid-grid-xl-5 {
+          flex-grow: 0;
+          max-width: 41.666667%;
+          flex-basis: 41.666667%;
+        }
+        .MuiGrid-grid-xl-6 {
+          flex-grow: 0;
+          max-width: 50%;
+          flex-basis: 50%;
+        }
+        .MuiGrid-grid-xl-7 {
+          flex-grow: 0;
+          max-width: 58.333333%;
+          flex-basis: 58.333333%;
+        }
+        .MuiGrid-grid-xl-8 {
+          flex-grow: 0;
+          max-width: 66.666667%;
+          flex-basis: 66.666667%;
+        }
+        .MuiGrid-grid-xl-9 {
+          flex-grow: 0;
+          max-width: 75%;
+          flex-basis: 75%;
+        }
+        .MuiGrid-grid-xl-10 {
+          flex-grow: 0;
+          max-width: 83.333333%;
+          flex-basis: 83.333333%;
+        }
+        .MuiGrid-grid-xl-11 {
+          flex-grow: 0;
+          max-width: 91.666667%;
+          flex-basis: 91.666667%;
+        }
+        .MuiGrid-grid-xl-12 {
+          flex-grow: 0;
+          max-width: 100%;
+          flex-basis: 100%;
+        }
+      }
+    </style>
+    <style data-jss="" data-meta="PrivateValueLabel">
+      .PrivateValueLabel-thumb-1.PrivateValueLabel-open-2
+        .PrivateValueLabel-offset-3 {
+        transform: scale(1) translateY(-10px);
+      }
+      .PrivateValueLabel-offset-3 {
+        top: -34px;
+        z-index: 1;
+        position: absolute;
+        font-size: 0.75rem;
+        transform: scale(0);
+        transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 400;
+        line-height: 1.2;
+        letter-spacing: 0.01071em;
+        transform-origin: bottom center;
+      }
+      .PrivateValueLabel-circle-4 {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        transform: rotate(-45deg);
+        align-items: center;
+        border-radius: 50% 50% 50% 0;
+        justify-content: center;
+        background-color: currentColor;
+      }
+      .PrivateValueLabel-label-5 {
+        color: #fff;
+        transform: rotate(45deg);
+      }
+    </style>
+    <style data-jss="" data-meta="MuiSlider">
+      .MuiSlider-root {
+        color: #3f51b5;
+        width: 100%;
+        cursor: pointer;
+        height: 2px;
+        display: inline-block;
+        padding: 13px 0;
+        position: relative;
+        box-sizing: content-box;
+        touch-action: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .MuiSlider-root.Mui-disabled {
+        color: #bdbdbd;
+        cursor: default;
+        pointer-events: none;
+      }
+      .MuiSlider-root.MuiSlider-vertical {
+        width: 2px;
+        height: 100%;
+        padding: 0 13px;
+      }
+      @media (pointer: coarse) {
+        .MuiSlider-root {
+          padding: 20px 0;
+        }
+        .MuiSlider-root.MuiSlider-vertical {
+          padding: 0 20px;
+        }
+      }
+      @media print {
+        .MuiSlider-root {
+          -webkit-print-color-adjust: exact;
+        }
+      }
+      .MuiSlider-colorSecondary {
+        color: #f50057;
+      }
+      .MuiSlider-marked {
+        margin-bottom: 20px;
+      }
+      .MuiSlider-marked.MuiSlider-vertical {
+        margin-right: 20px;
+        margin-bottom: auto;
+      }
+      .MuiSlider-rail {
+        width: 100%;
+        height: 2px;
+        display: block;
+        opacity: 0.38;
+        position: absolute;
+        border-radius: 1px;
+        background-color: currentColor;
+      }
+      .MuiSlider-vertical .MuiSlider-rail {
+        width: 2px;
+        height: 100%;
+      }
+      .MuiSlider-track {
+        height: 2px;
+        display: block;
+        position: absolute;
+        border-radius: 1px;
+        background-color: currentColor;
+      }
+      .MuiSlider-vertical .MuiSlider-track {
+        width: 2px;
+      }
+      .MuiSlider-trackFalse .MuiSlider-track {
+        display: none;
+      }
+      .MuiSlider-trackInverted .MuiSlider-track {
+        background-color: rgb(182, 188, 226);
+      }
+      .MuiSlider-trackInverted .MuiSlider-rail {
+        opacity: 1;
+      }
+      .MuiSlider-thumb {
+        width: 12px;
+        height: 12px;
+        display: flex;
+        outline: 0;
+        position: absolute;
+        box-sizing: border-box;
+        margin-top: -5px;
+        transition: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        align-items: center;
+        margin-left: -6px;
+        border-radius: 50%;
+        justify-content: center;
+        background-color: currentColor;
+      }
+      .MuiSlider-thumb::after {
+        top: -15px;
+        left: -15px;
+        right: -15px;
+        bottom: -15px;
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+      }
+      .MuiSlider-thumb.Mui-focusVisible,
+      .MuiSlider-thumb:hover {
+        box-shadow: 0px 0px 0px 8px rgba(63, 81, 181, 0.16);
+      }
+      .MuiSlider-thumb.MuiSlider-active {
+        box-shadow: 0px 0px 0px 14px rgba(63, 81, 181, 0.16);
+      }
+      .MuiSlider-thumb.Mui-disabled {
+        width: 8px;
+        height: 8px;
+        margin-top: -3px;
+        margin-left: -4px;
+      }
+      .MuiSlider-vertical .MuiSlider-thumb {
+        margin-left: -5px;
+        margin-bottom: -6px;
+      }
+      .MuiSlider-vertical .MuiSlider-thumb.Mui-disabled {
+        margin-left: -3px;
+        margin-bottom: -4px;
+      }
+      .MuiSlider-thumb.Mui-disabled:hover {
+        box-shadow: none;
+      }
+      @media (hover: none) {
+        .MuiSlider-thumb.Mui-focusVisible,
+        .MuiSlider-thumb:hover {
+          box-shadow: none;
+        }
+      }
+      .MuiSlider-thumbColorSecondary.Mui-focusVisible,
+      .MuiSlider-thumbColorSecondary:hover {
+        box-shadow: 0px 0px 0px 8px rgba(245, 0, 87, 0.16);
+      }
+      .MuiSlider-thumbColorSecondary.MuiSlider-active {
+        box-shadow: 0px 0px 0px 14px rgba(245, 0, 87, 0.16);
+      }
+      .MuiSlider-valueLabel {
+        left: calc(-50% - 4px);
+      }
+      .MuiSlider-mark {
+        width: 2px;
+        height: 2px;
+        position: absolute;
+        border-radius: 1px;
+        background-color: currentColor;
+      }
+      .MuiSlider-markActive {
+        opacity: 0.8;
+        background-color: #fff;
+      }
+      .MuiSlider-markLabel {
+        top: 26px;
+        color: rgba(0, 0, 0, 0.54);
+        position: absolute;
+        font-size: 0.875rem;
+        transform: translateX(-50%);
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 400;
+        line-height: 1.43;
+        white-space: nowrap;
+        letter-spacing: 0.01071em;
+      }
+      .MuiSlider-vertical .MuiSlider-markLabel {
+        top: auto;
+        left: 26px;
+        transform: translateY(50%);
+      }
+      @media (pointer: coarse) {
+        .MuiSlider-markLabel {
+          top: 40px;
+        }
+        .MuiSlider-vertical .MuiSlider-markLabel {
+          left: 31px;
+        }
+      }
+      .MuiSlider-markLabelActive {
+        color: rgba(0, 0, 0, 0.87);
+      }
+    </style> -->
+  </head>
+  <body>
+    <div id="root">
+      <div class="app">
+        <div class="player">
+          <div class="player__body">
+            <div class="sidebar">
+                <img
+                  class="sidebar__logo"
+                  src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
+                  alt=""
+                />
+                <div class="sidebarOption">
+                  <i class="fas fa-home sidebarOption__icon"></i>
+                  <h4>Home</h4>
+                </div>
+                <div class="sidebarOption">
+                  <i class="fas fa-search sidebarOption__icon"></i>
+                  <h4>Search</h4>
+                </div>
+                <div class="sidebarOption">
+                  <i class="fas fa-books sidebarOption__icon"></i>
+                  <h4>Your Library</h4>
+                </div>
+                <div class="sidebarOption">
+                  <button
+                    id="pathfinder"
+                    type="text"
+                    class="text-white px-10 py-1 mt-5"
+                    style="border: 1px solid white"
+                  >
+                    Browse for Music
+                  </button>
+                </div>
+                <br /><strong class="sidebar__title">PLAYLISTS</strong>
+                <hr />
+              </div>
+            <div class="body">
+              <div class="header">
+                <div class="header__left">
+                    <i class="fas fa-search"></i>
+              <input
+                    placeholder="Search for Artists, Songs, or Podcasts "
+                    type="text"
+                  />
+                </div>
+                <div class="header__right">
+              
+                  <h4>HumaneBroome2788</h4>
+                </div>
+              </div>
+              <div class="body__info">
+                <img
+                  alt=""
+                  src="https://newjams-images.scdn.co/image/ab676477000033ad/dt/v3/discover-weekly/3TfD7xnbr2_5uN9p-7G3WPtw3-6v1dXOl1sWvCZbvWTgZ2Rg__UuLfSykZSH90SVH0WIKgafBdPQqjouUmpb6qgbQfWWunh7WiA3cPZGYoC84sBYDpELrn-1paB4sZg9e2TN8hmX9W43D63rte-v8rSJLC71CBTypuUSyBb4ZOljJVkTh3UaKIb31IDkcSTS-l86qPQZBDVRSlvE5NFoWcgFeHclWRzeicPovJJTZvts4IC3U7mmoQpJtsIyRdC4c5gmuowkPapolQD5JzzncOjpzckew2LXxKYRiLGtLWV4IDfTNAbm3lsJT8G6tCC3v-ujF79Oshl0IEWxvc6Jz-WYwdbnTXTLOpX7HaUgSxvXVTCXqcnw0q-aR18yWqba/MzM6NTM6OTBUNjAtMjEtMQ=="
+                />
+                <div class="body__infoText">
+                  <strong>PLAYLIST</strong>
+                  <h2>Discover Weekly</h2>
+                  <p>
+                    Your weekly mixtape of fresh music. Enjoy new music and deep
+                    cuts picked for you. Updates every Monday.
+                  </p>
+                </div>
+              </div>
+              <div class="body__songs">
+                <div class="body__icons">
+                  <i class="fas fa-play"/></i>
+                </div>
+                <div class="songRow">
+                  <img
+                    class="songRow__album"
+                    src="https://i.scdn.co/image/ab67616d0000b2733d0bc82dc4c22b53d4199cd8"
+                    alt=""
+                  />
+                  <div class="songRow__info">
+                    <h1>Unfamiliar</h1>
+                    <p>Seeb, Goodboys, HRVY - Sad in Scandinavia (Part 1)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer h-5">
+            <div class="footer__left">
+              <img class="footer__albumLogo" id="nowPlaying__icon" />
+              <div class="footer__songInfo">
+                <h4 id="nowPlaying__song">No song is playing</h4>
+                <p id="nowPlaying__artist"></p>
+              </div>
+            </div>
+            <div class="footer__center">
+              <div
+                style="
+                  padding-left: 2rem;
+                  padding-right: 2rem;
+                  padding-top: 2rem;
+                  padding-bottom: 2rem;
+                "
+              >
+                <i class="fas fa-random footer__green"></i>
+              </div>
+              <div
+                style="
+                  padding-left: 2rem;
+                  padding-right: 2rem;
+                  padding-top: 2rem;
+                  padding-bottom: 2rem;
+                "
+              >
+                <i class="fas fa-step-backward"></i>
+              </div>
+              <div
+                style="
+                  padding-left: 2rem;
+                  padding-right: 2rem;
+                  padding-top: 2rem;
+                  padding-bottom: 2rem;
+                "
+                onclick="changeState()"
+              >
+                <i id="playButton" class="fas fa-play footer-icon"></i>
+              </div>
+              <div
+                style="
+                  padding-left: 2rem;
+                  padding-right: 2rem;
+                  padding-top: 2rem;
+                  padding-bottom: 2rem;
+                "
+              >
+                <i class="fas fa-step-forward footer-icon"></i>
+              </div>
+              <div
+                style="
+                  padding-left: 2rem;
+                  padding-right: 2rem;
+                  padding-top: 2rem;
+                  padding-bottom: 2rem;
+                "
+              >
+                <i class="fas fa-repeat footer__green"></i>
+              </div>
+            </div>
+            <div class="footer__right">
+              <i class="fas fa-list-music"></i>
+              <div class="encapsulator flex">
+                <i id="volume_signaller" class="fas fa-volume pr-5"></i>
+                <!-- volume_control -->
+                <div class="slider_container">
+                  <div class="slider">
+                    <input
+                      id="slideInput"
+                      type="range"
+                      min="0"
+                      max="100"
+                      value="25"
+                    />
+                    <progress
+                      id="slideProgress"
+                      min="0"
+                      max="100"
+                      value="25"
+                    ></progress>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
