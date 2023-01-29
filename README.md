@@ -2,7 +2,7 @@
 <br>
 <br>
 
-<img src="/assets/logo.png" alt="Extendify Logo" width=79.5% />
+<img src="/src/assets/png/logo.png" alt="Extendify Logo" width=79.5% />
 
 <br>
 <br>
